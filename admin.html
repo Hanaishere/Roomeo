@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DormFindr Admin</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+
+  
+  <nav class="flex justify-between items-center px-8 py-4 bg-white shadow-sm">
+    <h1 class="text-2xl font-bold text-blue-600">DormFindr</h1>
+    <a href="landingpage.html" class="text-gray-700 hover:text-blue-600">Back to Home</a>
+  </nav>
+
+  <section class="px-10 py-10">
+
+    <h2 class="text-3xl font-bold mb-6">Manage Dorm Listings</h2>
+
+    <!--  DORM FORM -->
+    <div class="bg-white p-6 rounded-xl shadow-md max-w-xl">
+      <h3 class="text-xl font-semibold mb-4">Add New Dorm</h3>
+
+      <div class="space-y-4">
+        <input id="name" type="text" placeholder="Dorm Name" class="w-full p-3 border rounded-lg">
+        <input id="city" type="text" placeholder="City" class="w-full p-3 border rounded-lg">
+        <input id="price" type="text" placeholder="Price" class="w-full p-3 border rounded-lg">
+        <input id="type" type="text" placeholder="Type (PG, Hostel, Dorm)" class="w-full p-3 border rounded-lg">
+        <input id="image" type="text" placeholder="Image URL" class="w-full p-3 border rounded-lg">
+
+        <button onclick="addDorm()"
+                class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">
+          Add Dorm
+        </button>
+      </div>
+    </div>
+
+    <!-- LIST -->
+    <h3 class="text-2xl font-bold mt-12 mb-4">Current Listings</h3>
+    <div id="dormList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+
+  </section>
+
+  <script>
+    const API = "http://localhost:8080/api/dorms";
+
+    async function addDorm() {
+      const dorm = {
+        name: document.getElementById("name").value,
+        city: document.getElementById("city").value,
+        price: document.getElementById("price").value,
+        type: document.getElementById("type").value,
+        imageUrl: document.getElementById("image").value
+      };
+
+      await fetch(API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dorm)
+      });
+
+      loadDorms();
+    }
+
+    async function loadDorms() {
+      const res = await fetch(API);
+      const data = await res.json();
+
+      const container = document.getElementById("dormList");
+      container.innerHTML = "";
+
+      data.forEach(d => {
+        container.innerHTML += `
+          <div class="bg-white p-4 rounded-xl shadow">
+            <img src="${d.imageUrl}" class="rounded-xl h-40 w-full object-cover" />
+            <h3 class="text-xl font-semibold mt-2">${d.name}</h3>
+            <p class="text-gray-500">${d.city}</p>
+            <p class="text-blue-600 font-bold">₹${d.price}</p>
+
+            <button onclick="deleteDorm(${d.id})"
+                    class="mt-2 bg-red-500 text-white px-4 py-2 rounded-lg w-full hover:bg-red-600">
+              Delete
+            </button>
+          </div>`;
+      });
+    }
+
+    async function deleteDorm(id) {
+      await fetch(`${API}/${id}`, { method: "DELETE" });
+      loadDorms();
+    }
+
+    loadDorms();
+  </script>
+
+</body>
+</html>
