@@ -8,7 +8,7 @@
 
 ##  Overview
 
-DormFinder is a web platform designed to help students and travelers find **dorms, PGs, and hostels** in new cities.
+Roomeo is a web platform designed to help students to find **dorms, PGs and hostels** in new cities.
 
 It provides:
 - 📸 Real accommodation images  
@@ -22,16 +22,11 @@ It provides:
 
 Finding accommodation in a new city is confusing, risky, and time-consuming.
 
-DormFinder creates a **centralized and reliable platform** for students—especially those from smaller towns—to explore and compare options easily.
+Roomeo creates a **centralized and reliable platform** for students—especially those from smaller towns—to explore and compare options easily.
 
 ---
 
-## Project Structure
 
-This project is divided into two repositories:
-
-- 🎨 Frontend: [Add your frontend repo link here]  
-- ⚙️ Backend: [Add your backend repo link here]  
 
 ---
 
@@ -41,7 +36,7 @@ This project is divided into two repositories:
 - 🏠 Detailed dorm listings  
 - 💸 Price-based filtering  
 - 📱 Responsive design  
-- 🔐 User authentication *(if implemented)*  
+- 🔐 User authentication 
 
 ---
 
