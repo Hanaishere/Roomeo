@@ -1,4 +1,4 @@
-# 🌍 DormFinder — Find Your Perfect Stay Anywhere
+# Roomeo — Find Your Perfect student accommodation anywhere
 
 <p align="center">
   <b>Making student accommodation discovery simple, safe, and smart ✨</b>
@@ -6,7 +6,7 @@
 
 ---
 
-## 🚀 Overview
+##  Overview
 
 DormFinder is a web platform designed to help students and travelers find **dorms, PGs, and hostels** in new cities.
 
@@ -18,7 +18,7 @@ It provides:
 
 ---
 
-## 🧠 Problem It Solves
+##  Problem It Solves
 
 Finding accommodation in a new city is confusing, risky, and time-consuming.
 
@@ -26,7 +26,7 @@ DormFinder creates a **centralized and reliable platform** for students—especi
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 This project is divided into two repositories:
 
@@ -35,7 +35,7 @@ This project is divided into two repositories:
 
 ---
 
-## 🌟 Key Features
+##  Key Features
 
 - 🔍 Search by location  
 - 🏠 Detailed dorm listings  
@@ -45,7 +45,7 @@ This project is divided into two repositories:
 
 ---
 
-## 💡 Future Improvements
+##  Future Improvements
 
 - 🌍 Map integration  
 - ⭐ Reviews & ratings  
@@ -54,6 +54,6 @@ This project is divided into two repositories:
 
 ---
 
-## 🧑‍💻 Author
+##  Author
 
 **Anushree Bose**
